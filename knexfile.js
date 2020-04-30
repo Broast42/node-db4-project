@@ -4,11 +4,12 @@ module.exports = {
 
   development: {
     client: 'sqlite3',
+    useNullAsDefault: true,
     connection: {
-      filename: './data/recipies'
+      filename: './data/recipeDb'
     },
     migrations: {
-      directory: '.data/migrations'
+      directory: './data/migrations'
     },
     seeds: {
       directory: './data/seeds'
