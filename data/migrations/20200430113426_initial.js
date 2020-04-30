@@ -12,8 +12,8 @@ exports.up = async function(knex) {
 
     await knex.schema.createTable("instructions", (table) => {
         table.increments("id")
-        table.text("details").notNull()
         table.integer("step").notNull()
+        table.text("details").notNull()
         table.integer("recipie_id")
             .references("id")
             .inTable("recipies")
