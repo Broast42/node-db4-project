@@ -1,10 +1,18 @@
 const express = require('express')
 
-//add route inport
+const recipiesRouter = require('./recipies/recipies_router')
 
 const server = express()
 
 server.use(express.json())
-//add route handeler
+server.use("/api", recipiesRouter)
+
+//default error
+server.use((err, req, res, next) => {
+	console.log(err)
+	res.status(500).json({
+		message: "Something went wrong",
+	})
+})
 
 module.exports = server
